@@ -29,7 +29,7 @@ class WelcomeComponent extends Component {
             className='btn btn-success'
           >
             Get Welcome Message
-          </button>
+          </button>f
         </div>
         <div className='container'>{this.state.welcomeMessage}</div>
       </>
