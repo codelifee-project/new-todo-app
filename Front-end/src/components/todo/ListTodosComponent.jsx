@@ -27,6 +27,13 @@ class ListTodoComponent extends Component {
         }, */
       ],
     };
+<<<<<<< HEAD
+=======
+
+    this.deleteTodoClicked = this.deleteTodoClicked.bind(this);
+    this.updateTodoClicked = this.updateTodoClicked.bind(this);
+    this.refreshTodos = this.refreshTodos.bind(this);
+>>>>>>> e5c2f63... Created Todo Component and Handle Routing
   }
 
   componentDidMount() {
@@ -37,6 +44,17 @@ class ListTodoComponent extends Component {
       });
       console.log(response);
     });
+  }
+
+  updateTodoClicked(id) {
+    console.log('update' + ' ' + id);
+    this.props.history.push(`/todos/${id}`);
+    // let username = AuthenticationService.getLoggedInUserName();
+    // // console.log(id + ' ' + username);
+    // TodoDataService.deleteTodos(username, id).then((response) => {
+    //   this.setState({ message: `Delete of todo ${id} Successful` });
+    //   this.refreshTodos();
+    // });
   }
 
   render() {
@@ -58,6 +76,25 @@ class ListTodoComponent extends Component {
                   <td>{todo.description}</td>
                   <td>{todo.done.toString()}</td>
                   <td>{todo.targetDate.toString()}</td>
+<<<<<<< HEAD
+=======
+                  <td>
+                    <button
+                      className='btn btn-success'
+                      onClick={() => this.updateTodoClicked(todo.id)}
+                    >
+                      Update
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      className='btn btn-warning'
+                      onClick={() => this.deleteTodoClicked(todo.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+>>>>>>> e5c2f63... Created Todo Component and Handle Routing
                 </tr>
               ))}
             </tbody>
