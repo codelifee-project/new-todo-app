@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HeaderComponent from './HeadercComponent';
+import HeaderComponent from './HeaderComponent';
 import AuthenticatedRoute from './AuthenticatedRoute';
 import LoginComponent from './LoginComponent';
 import ListTodoComponent from './ListTodosComponent';
@@ -18,10 +18,10 @@ class TodoApp extends Component {
         <Router>
           <HeaderComponent />
           <Switch>
-            {!AuthenticationService.isUserLoggedIn && (
+            {AuthenticationService.isUserLoggedIn && (
               <Route path='/' exact component={LoginComponent} />
             )}
-            {!AuthenticationService.isUserLoggedIn && (
+            {AuthenticationService.isUserLoggedIn && (
               <Route path='/login' component={LoginComponent} />
             )}
             <AuthenticatedRoute
