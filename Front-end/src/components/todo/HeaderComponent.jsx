@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import AuthenticationService from './AuthenticationService.js';
+import AuthenticationService from '../../api/todo/AuthenticationService.js';
 
 class HeaderComponent extends Component {
   render() {

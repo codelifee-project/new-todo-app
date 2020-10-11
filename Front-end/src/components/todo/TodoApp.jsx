@@ -9,7 +9,7 @@ import LogoutComponent from './LogoutComponent';
 import WelcomeComponent from './WelcomeComponent';
 import ErrorComponent from './ErrorComponent';
 import TodoComponent from './TodoComponent';
-import AuthenticationService from '../../api/todo/AuthenticationService';
+import AuthenticationService from '../../api/todo/AuthenticationService.js';
 
 class TodoApp extends Component {
   render() {

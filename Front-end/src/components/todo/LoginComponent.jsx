@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AuthenticationService from './AuthenticationService.js';
+import AuthenticationService from '../../api/todo/AuthenticationService.js';
 
 class LoginComponent extends Component {
   constructor(props) {
@@ -11,8 +11,6 @@ class LoginComponent extends Component {
       hasLoginFailed: false,
       showSuccessMessage: false,
     };
-    /* this.handleUsernameChange = this.handleUsernameChange.bind(this);
-      this.handlePasswordChange = this.handlePasswordChange.bind(this); */
     this.handleChange = this.handleChange.bind(this);
     this.loginClicked = this.loginClicked.bind(this);
   }
@@ -24,19 +22,6 @@ class LoginComponent extends Component {
     });
   }
 
-  /* handleUsernameChange(event) {
-      console.log(event.target.value);
-      this.setState({
-        username: event.target.value,
-      });
-    }
-  
-    handlePasswordChange(event) {
-      console.log(event.target.value);
-      this.setState({
-        password: event.target.value,
-      });
-    } */
 
   loginClicked() {
     if (
@@ -95,29 +80,7 @@ class LoginComponent extends Component {
       </div>
     );
   }
-
-  //just tried to replace function with function which is inside the component
-  /* showInvalidCredentials() {
-      if (this.state.hasLoginFailed) {
-        return <div>Invalid Credentials</div>;
-      } else {
-        return null;
-      }
-    } */
 }
 
-/* function ShowInvalidCredentials(props) {
-  if (props.hasLoginFailed) {
-    return <div>Invalid Credentials</div>;
-  }
-  return null;
-}
-
-function ShowLoginSuccessful(props) {
-  if (props.showSuccessMessage) {
-    return <div>Login Sucessfull</div>;
-  }
-  return null;
-} */
 
 export default LoginComponent;

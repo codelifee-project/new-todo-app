@@ -29,14 +29,8 @@ public class TodoResource {
 		
 		if(todo!=null) {
 			return ResponseEntity.noContent().build();
-<<<<<<< HEAD
-		}
-		
-		return ResponseEntity.notFound().build();
-=======
 		} else {
 			return ResponseEntity.notFound().build();
 		}
->>>>>>> 219d496... Created DELETE Request
 	}
 }
