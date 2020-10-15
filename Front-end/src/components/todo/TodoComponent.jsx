@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { Field, Formik, Form, ErrorMessage } from 'formik';
+import TodoDataService from '../../api/todo/TodoDataService.js'
+import AuthenticationService from '../../api/todo/AuthenticationService.js'
 
 
 class TodoComponent extends Component {
@@ -8,7 +10,7 @@ class TodoComponent extends Component {
     super(props);
     this.state = {
       id: this.props.match.params.id,
-      description: 'Learn Forms Now',
+      description: '',
       targetDate: moment(new Date()).format('YYYY-MM-DD') ,
     };
 
@@ -18,6 +20,15 @@ class TodoComponent extends Component {
 
   onSubmit(values) {
     console.log(values);
+  }
+
+  componentDidMount() {
+    let username = AuthenticationService.getLoggedInUserName();
+    TodoDataService.retrieveTodo(username, this.state.id)
+    .then(response => this.setState({
+        description: response.data.description,
+        targetDate: moment(response.data.targetDate).format('YYYY-MM-DD'),
+      }));
   }
 
   validate(values) {
@@ -50,6 +61,7 @@ class TodoComponent extends Component {
           validateOnChange={false}
           validateOnBlur={false}
           validate={this.validate}
+          enableReinitialize={true}
         >
           {
             (props) => (
